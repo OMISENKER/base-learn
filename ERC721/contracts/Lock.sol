@@ -1,34 +1,21 @@
-// SPDX-License-Identifier: UNLICENSED
-pragma solidity ^0.8.28;
+// SPDX-License-Identifier: MIT
 
-// Uncomment this line to use console.log
-// import "hardhat/console.sol";
+import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
+pragma solidity ^0.8.20;
 
-contract Lock {
-    uint public unlockTime;
-    address payable public owner;
+contract Naruto is ERC721URIStorage {
+    uint256 tokenId;
 
-    event Withdrawal(uint amount, uint when);
+    constructor() ERC721 ("Naruto", "NRT"){}
 
-    constructor(uint _unlockTime) payable {
-        require(
-            block.timestamp < _unlockTime,
-            "Unlock time should be in the future"
+    function mint() external{
+        _safeMint(msg.sender, tokenId);
+        _setTokenURI(
+            tokenId, 
+            "https://raw.githubusercontent.com/OMISENKER/base-learn/refs/heads/main/ERC721/metadata/myFirstNFT.json"
+        
         );
-
-        unlockTime = _unlockTime;
-        owner = payable(msg.sender);
-    }
-
-    function withdraw() public {
-        // Uncomment this line, and the import of "hardhat/console.sol", to print a log in your terminal
-        // console.log("Unlock time is %o and block timestamp is %o", unlockTime, block.timestamp);
-
-        require(block.timestamp >= unlockTime, "You can't withdraw yet");
-        require(msg.sender == owner, "You aren't the owner");
-
-        emit Withdrawal(address(this).balance, block.timestamp);
-
-        owner.transfer(address(this).balance);
+        tokenId++;
     }
 }

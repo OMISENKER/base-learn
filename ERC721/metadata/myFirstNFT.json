@@ -1,21 +1,20 @@
-
 {
-    "name": "My First NFT",
-    "description": "My Exclusive NFT ",
-    "symbol": "NFT",
-    "image": "https://i.imgur.com/B0tguV7.jpeg",
-    "attributes": [
-        {
-            "trait_type": "Background",
-            "value": "Red"
-        },
-        {
-            "trait_type": "Weapon",
-            "value": "Gun"
-        },
-        {
-            "trait_type": "Eyes",
-            "value": "Confused"
-        }
-    ]
-}   
+  "name": "Naruto Meme",
+  "description": "Naruto Memes",
+  "symbol": "BRT",
+  "image": "https://i.imgur.com/5yB1TwI.png",
+  "attributes": [
+    {
+      "trait_type": "Background",
+      "value": "Red"
+    },
+    {
+      "trait_type": "Weapon",
+      "value": "Gun"
+    },
+    {
+      "trait_type": "Eyes",
+      "value": "Confused"
+    }
+  ]
+}
